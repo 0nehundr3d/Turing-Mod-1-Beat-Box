@@ -85,4 +85,15 @@ describe LinkedList do
       expect(@list.includes?('dep')).to eq(false)
     end
   end
+
+  describe '#pop' do
+    it 'can pop nodes' do
+      @list.append('deep')
+      @list.append('doop')
+      @list.append('dop')
+
+      expect(@list.pop.data).to eq('dop')
+      expect(@list.to_string).to eq('deep doop')
+    end
+  end
 end
