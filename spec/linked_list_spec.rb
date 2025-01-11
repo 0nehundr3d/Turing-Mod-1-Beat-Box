@@ -74,4 +74,15 @@ describe LinkedList do
       expect(@list.find(1, 2)).to eq('doop dop')
     end
   end
+
+  describe '#includes?' do
+    it 'can check for inclusion of nodes' do
+      @list.append('deep')
+      @list.append('doop')
+      @list.append('dop')
+
+      expect(@list.includes?('deep')).to eq(true)
+      expect(@list.includes?('dep')).to eq(false)
+    end
+  end
 end
