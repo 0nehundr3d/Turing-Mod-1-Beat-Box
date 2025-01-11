@@ -82,4 +82,15 @@ class LinkedList
 
     return_string.chop
   end
+
+  def includes?(data)
+    current_node = @head
+
+    while current_node.next_node do
+      return true if current_node.data == data
+      current_node = current_node.next_node
+    end
+
+    false
+  end
 end
