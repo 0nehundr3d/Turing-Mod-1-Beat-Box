@@ -63,4 +63,15 @@ describe LinkedList do
       expect(@list.to_string).to eq('doop dop suu')
     end
   end
+
+  describe '#find' do
+    it 'can find nodes' do
+      @list.append('deep')
+      @list.append('doop')
+      @list.append('dop')
+
+      expect(@list.find(2, 1)).to eq('dop')
+      expect(@list.find(1, 2)).to eq('doop dop')
+    end
+  end
 end
