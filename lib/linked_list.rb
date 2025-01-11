@@ -22,6 +22,24 @@ class LinkedList
     @head = node
   end
 
+  def insert(position, data)
+    node = Node.new(data)
+    current_node = @head
+
+    if position <= 0
+      prepend(data)
+      return
+    end
+
+    (position - 1).times do
+      current_node = current_node.next_node
+    end
+
+    following_nodes = current_node.next_node
+    current_node.next_node = node
+    node.next_node = following_nodes
+  end
+
   def count
     count = 0
     current_node = @head
