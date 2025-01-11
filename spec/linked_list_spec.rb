@@ -95,5 +95,11 @@ describe LinkedList do
       expect(@list.pop.data).to eq('dop')
       expect(@list.to_string).to eq('deep doop')
     end
+
+    it 'can pop one element lists' do
+      @list.append('deep')
+
+      expect(@list.pop.data).to eq('deep')
+    end
   end
 end
