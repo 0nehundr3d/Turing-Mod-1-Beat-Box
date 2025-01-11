@@ -65,4 +65,21 @@ class LinkedList
 
     return string.chop
   end
+
+  def find(index, slice)
+    current_node = @head
+
+    index.times do 
+      current_node = current_node.next_node
+    end
+
+    return_string = ""
+
+    slice.times do
+      return_string << current_node.data << " "
+      current_node = current_node.next_node
+    end
+
+    return_string.chop
+  end
 end
