@@ -5,6 +5,7 @@ require 'rspec'
 describe LinkedList do
   before do
     @list = LinkedList.new
+    @list.append('doop')
   end
 
   describe '#initialize' do
@@ -19,7 +20,6 @@ describe LinkedList do
 
   describe '#append' do
     it 'can append nodes to the list' do
-      @list.append("doop")
       expect(@list.head).to be_a(Node)
       expect(@list.head.data).to eq("doop")
     end
@@ -27,7 +27,6 @@ describe LinkedList do
 
   describe '#count' do
     it 'can give a count of elements in the list' do
-      @list.append("doop")
       @list.append("deep")
       expect(@list.count).to eq(2)
     end
@@ -35,10 +34,15 @@ describe LinkedList do
 
   describe '#to_string' do
     it 'can render the list data as a string' do
-      @list.append("doop")
       @list.append("deep")
       expect(@list.to_string).to eq("doop deep")
     end
   end
 
+  describe '#prepend' do
+    it 'can prepend nodes to the list' do
+      @list.prepend('dop')
+      expect(@list.to_string).to eq('dop doop')
+    end
+  end
 end
