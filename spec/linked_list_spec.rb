@@ -53,4 +53,14 @@ describe LinkedList do
       expect(@list.to_string).to eq('dop doop suu')
     end
   end
+
+  describe '#insert' do
+    it 'can insert nodes' do
+      @list.append('doop')
+      @list.append('suu')
+      @list.insert(1, 'dop')
+
+      expect(@list.to_string).to eq('doop dop suu')
+    end
+  end
 end
