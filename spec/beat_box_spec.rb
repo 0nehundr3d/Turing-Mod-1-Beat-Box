@@ -25,6 +25,12 @@ describe BeatBox do
       expect(@bb.list.head.data).to eq('deep')
       expect(@bb.list.to_string).to eq('deep doop dop')
     end
+
+    it 'will only append accepted nodes' do
+      @bb.append('tee hee hee Mississippi')
+
+      expect(@bb.all).to eq('tee hee hee')
+    end
   end
 
   describe '#all' do
@@ -39,6 +45,13 @@ describe BeatBox do
     it 'can prepend nodes' do
       @bb.append('deep doop dop')
       @bb.prepend('tee hee hee')
+
+      expect(@bb.all).to eq('tee hee hee deep doop dop')
+    end
+
+    it 'will only prepend accepted nodes' do
+      @bb.append('deep doop dop')
+      @bb.prepend('tee hee hee Mississippi')
 
       expect(@bb.all).to eq('tee hee hee deep doop dop')
     end
