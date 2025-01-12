@@ -26,4 +26,21 @@ describe BeatBox do
       expect(@bb.list.to_string).to eq('deep doop dop')
     end
   end
+
+  describe '#all' do
+    it 'can render all nodes as a string' do
+      @bb.append('deep doop dop')
+
+      expect(@bb.all).to eq('deep doop dop')
+    end
+  end
+
+  describe '#prepend' do
+    it 'can prepend nodes' do
+      @bb.append('deep doop dop')
+      @bb.prepend('tee hee hee')
+
+      expect(@bb.all).to eq('tee hee hee deep doop dop')
+    end
+  end
 end
